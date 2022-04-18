@@ -1,5 +1,8 @@
-def find_shortest_string_recursive(arr)
-  # type your code in here
+def find_shortest_string_recursive(arr, shortest=nil)
+  if shortest == nil then shortest = arr[0] end
+  shortest = arr[0].length < shortest.length ? arr[0] : shortest
+  return shortest if arr.length == 1
+  find_shortest_string_recursive(arr[1..-1], shortest)
 end
 
 if __FILE__ == $PROGRAM_NAME
@@ -20,4 +23,9 @@ if __FILE__ == $PROGRAM_NAME
 end
 
 # Please add your pseudocode to this file
+
+
+
 # And a written explanation of your solution
+
+find_shortest_string_recursive(['flower', 'juniper', 'lily', 'dandelion'])
